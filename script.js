@@ -11,6 +11,10 @@ const paper4 = document.querySelector('#p4');
 const paper5 = document.querySelector('#p5');
 const paper6 = document.querySelector('#p6');
 const paper7 = document.querySelector('#p7');
+const paper8 = document.querySelector('#p8');
+const paper9 = document.querySelector('#p9');
+const paper10 = document.querySelector('#p10');
+const paper11 = document.querySelector('#p11');
 
 // Event Listeners
 
@@ -21,7 +25,7 @@ nextBtn.addEventListener('click', goNextPage);
 // Business Logic
 
 let currentLocation = 1;
-let numOfPages = 6;
+let numOfPages = 11;
 let maxLocation = numOfPages + 1;
 
 function openBook() {
@@ -67,6 +71,22 @@ function goNextPage() {
             case 7:
                 paper7.classList.add('flipped');
                 paper7.style.zIndex = 7;
+                break;
+            case 8:
+                paper8.classList.add('flipped');
+                paper8.style.zIndex = 8;
+                break;
+            case 9:
+                paper9.classList.add('flipped');
+                paper9.style.zIndex = 9;
+                break;
+            case 10:
+                paper10.classList.add('flipped');
+                paper10.style.zIndex = 10;
+                break; 
+            case 11:
+                paper11.classList.add('flipped');
+                paper11.style.zIndex = 11;
                 closeBook();
             default:
                 throw new Error('unknown state');
@@ -106,6 +126,18 @@ function goPrevPage() {
             case 8:
                 paper7.classList.remove('flipped');
                 paper7.style.zIndex = -3;
+                break;
+            case 9:
+                paper8.classList.remove('flipped');
+                paper8.style.zIndex = -4;
+                break;
+            case 10:
+                paper9.classList.remove('flipped');
+                paper9.style.zIndex = -5;
+                break;
+            case 11:
+                paper10.classList.remove('flipped');
+                paper10.style.zIndex = -6;
                 break;
             default:
                 throw new Error('unknown state');
