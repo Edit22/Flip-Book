@@ -34,8 +34,13 @@ function openBook() {
     nextBtn.style.transform = 'translateX(250px)';
 }
 
-function closeBook() {
-    book.style.transform = 'translateX(0%)';
+function closeBook(isAtBeginning) {
+    if(isAtBeginning) {
+        book.style.transform = 'translateX(0%)';
+    }else {
+        book.style.transform = 'translateX(100%)';
+    }
+   
     prevBtn.style.transform = 'translateX(0px)';
     nextBtn.style.transform = 'translateX(0px)';
 }
@@ -87,7 +92,8 @@ function goNextPage() {
             case 11:
                 paper11.classList.add('flipped');
                 paper11.style.zIndex = 11;
-                closeBook();
+                closeBook(false);
+                break;
             default:
                 throw new Error('unknown state');
         }
@@ -99,7 +105,7 @@ function goPrevPage() {
     if(currentLocation > 1) {
         switch(currentLocation) {
             case 2:
-                closeBook();
+                closeBook(true);
                 paper1.classList.remove('flipped');
                 paper1.style.zIndex = 3;
                 break;
@@ -114,7 +120,7 @@ function goPrevPage() {
             case 5:
                 paper4.classList.remove('flipped');
                 paper4.style.zIndex = 0;
-                    break;
+                break;
             case 6:
                 paper5.classList.remove('flipped');
                 paper5.style.zIndex = -1;
@@ -138,6 +144,11 @@ function goPrevPage() {
             case 11:
                 paper10.classList.remove('flipped');
                 paper10.style.zIndex = -6;
+                break;
+            case 12:
+                openBook();
+                paper11.classList.remove('flipped');
+                paper11.style.zIndex = -7;
                 break;
             default:
                 throw new Error('unknown state');
